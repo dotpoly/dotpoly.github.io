@@ -176,6 +176,38 @@ h1 span {
   font-weight: 800;
 }
 
+.pavie-mark {
+  letter-spacing: 0.02em;
+}
+
+.pavie-mark::first-letter,
+.pavie-mark {
+  font-variant-ligatures: none;
+}
+
+.pavie-mark {
+  color: var(--ink);
+}
+
+.pavie-mark .accent-av {
+  color: var(--accent);
+}
+
+.acronym-mark {
+  display: inline-block;
+  padding: 0.1rem 0.42rem 0.08rem;
+  margin: 0 0.08rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.82em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.04);
+  vertical-align: 0.08em;
+}
+
 .hero-card,
 .story-intro,
 .chapter,
