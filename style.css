@@ -1,13 +1,13 @@
 :root {
-  --bg: #f7f1e4;
-  --bg-deep: #ebdfc7;
-  --paper: rgba(255, 252, 245, 0.78);
-  --ink: #271a15;
-  --muted: #68554b;
-  --accent: #9b4d31;
-  --accent-soft: #d7905b;
-  --line: rgba(39, 26, 21, 0.12);
-  --shadow: 0 24px 80px rgba(69, 37, 18, 0.16);
+  --bg: #10161d;
+  --bg-deep: #18222c;
+  --paper: rgba(19, 28, 37, 0.78);
+  --ink: #eef3f7;
+  --muted: #b5c2cf;
+  --accent: #8fc7d8;
+  --accent-soft: #5f95a6;
+  --line: rgba(220, 235, 248, 0.12);
+  --shadow: 0 26px 90px rgba(0, 0, 0, 0.34);
   --radius-xl: 28px;
   --radius-lg: 20px;
   --radius-md: 14px;
@@ -26,9 +26,10 @@ body {
   font-family: "Manrope", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), transparent 28%),
-    radial-gradient(circle at 85% 20%, rgba(215, 144, 91, 0.25), transparent 22%),
-    linear-gradient(180deg, #f9f3e8 0%, #f1e7d2 42%, #e6d6b7 100%);
+    radial-gradient(circle at 12% 8%, rgba(143, 199, 216, 0.14), transparent 24%),
+    radial-gradient(circle at 82% 18%, rgba(77, 109, 128, 0.2), transparent 26%),
+    radial-gradient(circle at 50% 120%, rgba(29, 45, 58, 0.58), transparent 35%),
+    linear-gradient(180deg, #0c1117 0%, #121a22 38%, #17212b 100%);
 }
 
 img {
@@ -46,9 +47,19 @@ a {
   overflow: clip;
 }
 
+.page-shell-notes {
+  overflow: visible;
+}
+
 .hero,
 main {
   width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.notes-main,
+.notes-hero {
+  width: min(980px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
@@ -150,14 +161,19 @@ h1 span {
 }
 
 .button-primary {
-  color: #fff8ef;
-  background: linear-gradient(135deg, #8f4328, #c56a37);
-  box-shadow: 0 12px 34px rgba(155, 77, 49, 0.28);
+  color: #fff6ef;
+  background: linear-gradient(135deg, #507f93, #7eb8ca);
+  box-shadow: 0 14px 40px rgba(20, 47, 63, 0.42);
 }
 
 .button-secondary {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 248, 241, 0.06);
+}
+
+.inline-link {
+  color: var(--accent);
+  font-weight: 800;
 }
 
 .hero-card,
@@ -168,7 +184,7 @@ h1 span {
 .closing-card {
   background: var(--paper);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 243, 231, 0.08);
   box-shadow: var(--shadow);
 }
 
@@ -202,6 +218,151 @@ section {
 .closing-card {
   border-radius: var(--radius-xl);
   padding: clamp(1.4rem, 3vw, 2.5rem);
+}
+
+.notes-hero {
+  padding: 1.25rem 0 2rem;
+}
+
+.topbar-static {
+  position: static;
+  width: 100%;
+  transform: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.notes-header-card,
+.notes-article {
+  background: var(--paper);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 243, 231, 0.08);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius-xl);
+}
+
+.notes-header-card {
+  margin-top: 1rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.notes-main {
+  padding-bottom: 5rem;
+}
+
+.notes-article {
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+}
+
+.notes-figure {
+  margin: 1.5rem 0;
+}
+
+.notes-figure img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+}
+
+.notes-figure figcaption {
+  margin-top: 0.85rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.notes-aside {
+  margin: 1.2rem 0 2rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(255, 248, 241, 0.05);
+}
+
+.notes-aside p {
+  margin-top: 0;
+}
+
+.notes-article h1,
+.notes-article h2,
+.notes-article h3,
+.notes-article h4,
+.notes-header-card h1 {
+  line-height: 1.08;
+}
+
+.notes-article h2,
+.notes-header-card h1 {
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+}
+
+.notes-article h3 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+}
+
+.notes-article h4 {
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+}
+
+.notes-lead,
+.notes-article p,
+.notes-list li,
+.notes-table,
+.notes-quote {
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.notes-list {
+  padding-left: 1.2rem;
+}
+
+.notes-list li + li {
+  margin-top: 0.3rem;
+}
+
+.notes-article pre {
+  overflow-x: auto;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.notes-article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+}
+
+.notes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.3rem;
+}
+
+.notes-table th,
+.notes-table td {
+  text-align: left;
+  padding: 0.9rem 0.8rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.notes-table th {
+  color: var(--ink);
+}
+
+.notes-quote {
+  margin: 1rem 0;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--accent-soft);
+  background: rgba(255, 248, 241, 0.06);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
 .story-grid {
@@ -249,7 +410,7 @@ section {
   border-radius: 999px;
   font-weight: 800;
   color: #fff8ef;
-  background: linear-gradient(135deg, #8f4328, #d7905b);
+  background: linear-gradient(135deg, #4f7589, #83b6c8);
 }
 
 .chapter h3 {
@@ -277,15 +438,21 @@ section {
 }
 
 .polaroid {
-  background: #fffdf9;
+  background: rgba(245, 235, 226, 0.94);
   border-radius: 8px;
   padding: 0.85rem 0.85rem 1.2rem;
-  box-shadow: 0 18px 44px rgba(49, 31, 18, 0.18);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
 }
 
 .polaroid img {
   width: 100%;
   border-radius: 2px;
+}
+
+.polaroid figcaption {
+  margin-top: 0.8rem;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 .polaroid-wide {
@@ -360,9 +527,17 @@ time {
   .topbar {
     position: fixed;
     padding: 0.85rem 1rem;
-    background: rgba(249, 243, 232, 0.88);
+    background: rgba(11, 17, 24, 0.88);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
+  }
+
+  .topbar-static {
+    position: static;
+    padding: 0.85rem 0;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 0;
   }
 
   .nav-links {
